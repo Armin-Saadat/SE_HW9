@@ -1,6 +1,5 @@
 package codegenerator;
 
-import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 import log.Log;
 import errorhandler.ErrorHandler;
 import scanner.token.Token;
