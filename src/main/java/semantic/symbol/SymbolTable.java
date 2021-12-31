@@ -5,7 +5,7 @@ import codegenerator.Address;
 import codegenerator.Memory;
 import codegenerator.TypeAddress;
 import codegenerator.VarType;
-import errorhandler.ErrorHandlerHelper;
+import errorhandler.ErrorHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class SymbolTable {
 
     public void addClass(String className) {
         if (klasses.containsKey(className)) {
-            ErrorHandlerHelper.printError("This class already defined");
+            ErrorHandler.printError("This class already defined");
         }
         klasses.put(className, new Klass());
     }
@@ -43,7 +43,7 @@ public class SymbolTable {
 
     public void addMethod(String className, String methodName, int address) {
         if (klasses.get(className).Methodes.containsKey(methodName)) {
-            ErrorHandlerHelper.printError("This method already defined");
+            ErrorHandler.printError("This method already defined");
         }
         klasses.get(className).Methodes.put(methodName, new Method(address, lastType));
     }
@@ -54,7 +54,7 @@ public class SymbolTable {
 
     public void addMethodLocalVariable(String className, String methodName, String localVariableName) {
         if (klasses.get(className).Methodes.get(methodName).localVariable.containsKey(localVariableName)) {
-            ErrorHandlerHelper.printError("This variable already defined");
+            ErrorHandler.printError("This variable already defined");
         }
         klasses.get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, mem.getDateAddress()));
     }
