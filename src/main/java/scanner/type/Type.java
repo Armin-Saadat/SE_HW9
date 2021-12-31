@@ -39,19 +39,11 @@ public enum Type {
         for (Type t : values()) {
             pattern = Pattern.compile(t.pattern);
             matcher = pattern.matcher(s);
-            if (matcher.matches())
+            if (matcher.matches()) {
                 return t;
+            }
         }
 
-
-//        if (s.equals("class")||s.equals("extends")||s.equals("public")||s.equals("static")||s.equals("void")||s.equals("return")||s.equals("main")||
-//                s.equals("boolean")||s.equals("int")||s.equals("if")||s.equals("else")||s.equals("while")||s.equals("true")||s.equals("false")||s.equals("System.out.println")) {
-//            return KEYWORDS;
-//        }else if(s.equals("")){
-//
-//        }else if(s.equals("")){
-//
-//        }
         throw new IllegalArgumentException();
     }
 }
