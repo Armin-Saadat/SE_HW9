@@ -1,5 +1,6 @@
 package codegenerator;
 
+import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 import log.Log;
 import errorhandler.ErrorHandler;
 import scanner.token.Token;
@@ -302,37 +303,25 @@ public class CodeGenerator {
     }
 
     public void add() {
-        Address temp = new Address(memory.getTemp(), varType.Int);
-        Address s2 = ss.pop();
-        Address s1 = ss.pop();
-
-        if (s1.varType != varType.Int || s2.varType != varType.Int) {
-            ErrorHandler.printError("In add two operands must be integer");
-        }
-        memory.add3AddressCode(Operation.ADD, s1, s2, temp);
-        ss.push(temp);
+        mathOperation(Operation.ADD);
     }
 
     public void sub() {
-        Address temp = new Address(memory.getTemp(), varType.Int);
-        Address s2 = ss.pop();
-        Address s1 = ss.pop();
-        if (s1.varType != varType.Int || s2.varType != varType.Int) {
-            ErrorHandler.printError("In sub two operands must be integer");
-        }
-        memory.add3AddressCode(Operation.SUB, s1, s2, temp);
-        ss.push(temp);
+        mathOperation(Operation.SUB);
     }
 
     public void mult() {
+        mathOperation(Operation.MULT);
+    }
+
+    private void mathOperation(Operation operation) {
         Address temp = new Address(memory.getTemp(), varType.Int);
         Address s2 = ss.pop();
         Address s1 = ss.pop();
         if (s1.varType != varType.Int || s2.varType != varType.Int) {
-            ErrorHandler.printError("In mult two operands must be integer");
+            ErrorHandler.printError(String.format("In %s two operands must be integer", operation.name()));
         }
-        memory.add3AddressCode(Operation.MULT, s1, s2, temp);
-//        memory.saveMemory();
+        memory.add3AddressCode(operation, s1, s2, temp);
         ss.push(temp);
     }
 
