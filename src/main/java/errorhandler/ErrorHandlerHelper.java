@@ -3,9 +3,7 @@ package errorhandler;
 /**
  * Created by Alireza on 6/28/2015.
  */
-public class ErrorHandler {
-    private ErrorHandler() {
-    }
+public class ErrorHandlerHelper {
 
     public static boolean hasError = false;
 

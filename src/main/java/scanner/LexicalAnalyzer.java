@@ -1,6 +1,6 @@
 package scanner;
 
-import errorhandler.ErrorHandler;
+import errorhandler.ErrorHandlerHelper;
 import scanner.token.Token;
 import scanner.type.Type;
 
@@ -36,7 +36,7 @@ public class LexicalAnalyzer {
 
                     }
                     if (matcher.group(Type.ErrorID.name()) != null) {
-                        ErrorHandler.printError("The id must start with character");
+                        ErrorHandlerHelper.printError("The id must start with character");
                         break;
                     }
 
