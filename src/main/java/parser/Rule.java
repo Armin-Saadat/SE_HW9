@@ -1,10 +1,7 @@
 package parser;
 
-import Log.Log;
 import scanner.token.Token;
-import scanner.type.Type;
 
-import java.lang.management.GarbageCollectorMXBean;
 import java.util.ArrayList;
 
 /**
