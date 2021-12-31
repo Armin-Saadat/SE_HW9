@@ -22,13 +22,26 @@ public class Parser {
   private CodeGenerator cg;
 
   public Parser() {
+    initParseStack();
+    initParseTable();
+    initRules();
+    cg = new CodeGenerator();
+  }
+
+  private void initParseStack() {
     parsStack = new Stack<Integer>();
     parsStack.push(0);
+  }
+
+  private void initParseTable() {
     try {
       parseTable = new ParseTable(Files.readAllLines(Paths.get("src/main/resources/parseTable")).get(0));
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  private void initRules() {
     rules = new ArrayList<Rule>();
     try {
       for (String stringRule : Files.readAllLines(Paths.get("src/main/resources/Rules"))) {
@@ -37,7 +50,6 @@ public class Parser {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    cg = new CodeGenerator();
   }
 
   public void startParse(java.util.Scanner sc) {
