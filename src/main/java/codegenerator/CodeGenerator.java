@@ -9,6 +9,8 @@ import semantic.symbol.SymbolType;
 
 import java.util.Stack;
 
+import static semantic.symbol.SymbolType.Bool;
+
 /**
  * Created by Alireza on 6/27/2015.
  */
@@ -431,11 +433,8 @@ public class CodeGenerator {
         Address s = ss.pop();
         SymbolType t = symbolTable.getMethodReturnType(symbolStack.peek(), methodName);
         VarType temp = VarType.Int;
-        switch (t) {
-            case Int:
-                break;
-            case Bool:
-                temp = VarType.Bool;
+        if (t == Bool) {
+            temp = VarType.Bool;
         }
         if (s.varType != temp) {
             ErrorHandler.printError("The type of method and return address was not match");
@@ -458,7 +457,7 @@ public class CodeGenerator {
     }
 
     public void lastTypeBool() {
-        symbolTable.setLastType(SymbolType.Bool);
+        symbolTable.setLastType(Bool);
     }
 
     public void lastTypeInt() {
