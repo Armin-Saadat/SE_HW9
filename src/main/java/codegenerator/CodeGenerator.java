@@ -32,108 +32,73 @@ public class CodeGenerator {
 
     public void semanticFunction(int func, Token next) {
         Log.print("codegenerator : " + func);
-        switch (func) {
-            case 0:
-                return;
-            case 1:
-                checkID();
-                break;
-            case 2:
-                pid(next);
-                break;
-            case 3:
-                fpid();
-                break;
-            case 4:
-                kpid(next);
-                break;
-            case 5:
-                intpid(next);
-                break;
-            case 6:
-                startCall();
-                break;
-            case 7:
-                call();
-                break;
-            case 8:
-                arg();
-                break;
-            case 9:
-                assign();
-                break;
-            case 10:
-                add();
-                break;
-            case 11:
-                sub();
-                break;
-            case 12:
-                mult();
-                break;
-            case 13:
-                label();
-                break;
-            case 14:
-                save();
-                break;
-            case 15:
-                whileCommand();
-                break;
-            case 16:
-                saveJPF();
-                break;
-            case 17:
-                jpHere();
-                break;
-            case 18:
-                print();
-                break;
-            case 19:
-                equal();
-                break;
-            case 20:
-                lessThan();
-                break;
-            case 21:
-                and();
-                break;
-            case 22:
-                not();
-                break;
-            case 23:
-                defClass();
-                break;
-            case 24:
-                defMethod();
-                break;
-            case 25:
-                popClass();
-                break;
-            case 26:
-                extend();
-                break;
-            case 27:
-                defField();
-                break;
-            case 28:
-                defVar();
-                break;
-            case 29:
-                methodReturn();
-                break;
-            case 30:
-                defParam();
-                break;
-            case 31:
-                lastTypeBool();
-                break;
-            case 32:
-                lastTypeInt();
-                break;
-            case 33:
-                defMain();
-                break;
+
+        if (func == 1) {
+            checkID();
+        } else if (func == 2) {
+            pid(next);
+        } else if (func == 3) {
+            fpid();
+        } else if (func == 4) {
+            kpid(next);
+        } else if (func == 5) {
+            intpid(next);
+        } else if (func == 6) {
+            startCall();
+        } else if (func == 7) {
+            call();
+        } else if (func == 8) {
+            arg();
+        } else if (func == 9) {
+            assign();
+        } else if (func == 10) {
+            add();
+        } else if (func == 11) {
+            sub();
+        } else if (func == 12) {
+            mult();
+        } else if (func == 13) {
+            label();
+        } else if (func == 14) {
+            save();
+        } else if (func == 15) {
+            whileCommand();
+        } else if (func == 16) {
+            saveJPF();
+        } else if (func == 17) {
+            jpHere();
+        } else if (func == 18) {
+            print();
+        } else if (func == 19) {
+            equal();
+        } else if (func == 20) {
+            lessThan();
+        } else if (func == 21) {
+            and();
+        } else if (func == 22) {
+            not();
+        } else if (func == 23) {
+            defClass();
+        } else if (func == 24) {
+            defMethod();
+        } else if (func == 25) {
+            popClass();
+        } else if (func == 26) {
+            extend();
+        } else if (func == 27) {
+            defField();
+        } else if (func == 28) {
+            defVar();
+        } else if (func == 29) {
+            methodReturn();
+        } else if (func == 30) {
+            defParam();
+        } else if (func == 31) {
+            lastTypeBool();
+        } else if (func == 32) {
+            lastTypeInt();
+        } else if (func == 33) {
+            defMain();
         }
     }
 
