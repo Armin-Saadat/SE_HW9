@@ -23,7 +23,9 @@ public class ParseTable {
                 String temp = cols[i].substring(5);
                 try {
                     nonTerminals.put(i, NonTerminal.valueOf(temp));
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                    continue;
+                }
             } else {
                 terminals.put(i, new Token(Token.getTyepFormString(cols[i]), cols[i]));
             }
