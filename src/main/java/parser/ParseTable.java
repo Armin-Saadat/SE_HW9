@@ -23,9 +23,7 @@ public class ParseTable {
                 String temp = cols[i].substring(5);
                 try {
                     nonTerminals.put(i, NonTerminal.valueOf(temp));
-                } catch (Exception e) {
-                    temp = temp;
-                }
+                } catch (Exception e) {}
             } else {
                 terminals.put(i, new Token(Token.getTyepFormString(cols[i]), cols[i]));
             }
@@ -33,10 +31,6 @@ public class ParseTable {
         actionTable = new ArrayList<Map<Token, Action>>();
         gotoTable = new ArrayList<Map<NonTerminal, Integer>>();
         for (int i = 1; i < rows.length; i++) {
-            if (i == 100) {
-                int a = 1;
-                a++;
-            }
             rows[i] = rows[i].substring(1, rows[i].length() - 1);
             cols = rows[i].split("\",\"");
             actionTable.add(new HashMap<Token, Action>());
